@@ -30,23 +30,25 @@ hi('1', '22', '333', '4444') | Hi 1, 22, 333, and 4444!
 #endregion debai
 
 #region bailam
-
-def hi(*args): 
-   if not args or all(arg == None for arg in args) or all(arg == '' for arg in args):
-      return 'Hi!'
-   valid_args = [arg for arg in args if arg] 
-   if len(valid_args) == 0: 
-      return f'Hi!' 
-   elif len(valid_args) == 1: 
-      return f'Hi {valid_args[0]}!'
+def hi(name=None, *names): 
+   if name is None or name == '' and not names: 
+      return "Hi!" 
+   elif names: 
+      valid_names = [name] + [n for n in names if n] 
+      if not valid_names: 
+         return "Hi!" 
+      elif len(valid_names) == 0: 
+         return f"Hi {valid_names[0]}!" 
+      else: 
+         return f"Hi {', '.join(valid_names[:-1])}, and {valid_names[-1]}!"
    else: 
-      return f"Hi {', '.join(valid_args[:-1])}, and {valid_args[-1]}!"
+      return f"Hi {name}!"
 
-#print(hi(name='Mom'))
+print(hi(name='Mom'))
 print(hi('Mom'))
 print(hi(''))
 print(hi())
-hi(None)
+print(hi(None))
 print(hi('Mom', 'Dad'))
 print(hi('A','B','C'))
 print(hi('1', '22', '333', '4444'))
