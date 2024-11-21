@@ -31,7 +31,7 @@ hi('1', '22', '333', '4444') | Hi 1, 22, 333, and 4444!
 
 #region bailam
 def hi(name=None, *names): 
-   if name is None or name == '' and not names: 
+   if name == None or name == '' and not names: 
       return 'Hi!'
    elif names: 
       valid_names = [name] + [n for n in names if n] 
