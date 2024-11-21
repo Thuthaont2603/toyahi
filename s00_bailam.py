@@ -32,17 +32,17 @@ hi('1', '22', '333', '4444') | Hi 1, 22, 333, and 4444!
 #region bailam
 def hi(name=None, *names): 
    if name is None or name == '' and not names: 
-      return "Hi!" 
+      return 'Hi!'
    elif names: 
       valid_names = [name] + [n for n in names if n] 
       if not valid_names: 
-         return "Hi!" 
+         return 'Hi!' 
       elif len(valid_names) == 0: 
-         return f"Hi {valid_names[0]}!" 
+         return f'Hi {valid_names[0]}!' 
       else: 
          return f"Hi {', '.join(valid_names[:-1])}, and {valid_names[-1]}!"
    else: 
-      return f"Hi {name}!"
+      return f'Hi {name}!'
 
 print(hi(name='Mom'))
 print(hi('Mom'))
